@@ -1,102 +1,182 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/app/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-b from-blue-50 to-white">
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="md:w-1/2 space-y-6">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                Create Professional Resumes in Minutes
+              </h1>
+              <p className="text-lg text-gray-600">
+                Upload your template, fill in your details, and get a perfectly formatted resume that stands out from the crowd.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Link href="/auth/login">
+                  <Button size="lg" className="w-full sm:w-auto">
+                    Get Started
+                  </Button>
+                </Link>
+                <Link href="/templates">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                    Browse Templates
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="md:w-1/2">
+              <Image
+                src="/resume-hero.svg"
+                alt="Resume Builder"
+                width={600}
+                height={400}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+
+      {/* Features Section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-600 text-2xl font-bold">1</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Upload Your Template</h3>
+              <p className="text-gray-600">
+                Upload your favorite resume template or choose from our collection of professional designs.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-600 text-2xl font-bold">2</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Fill Your Information</h3>
+              <p className="text-gray-600">
+                Enter your personal, educational, and professional details in our structured, easy-to-use forms.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-600 text-2xl font-bold">3</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Download Your Resume</h3>
+              <p className="text-gray-600">
+                Preview your resume and download a high-quality PDF ready to impress potential employers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Testimonials Section */}
+      <div className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full mr-4"></div>
+                <div>
+                  <h4 className="font-semibold">Sarah Johnson</h4>
+                  <p className="text-sm text-gray-500">Marketing Specialist</p>
+                </div>
+              </div>
+              <p className="text-gray-600">
+                &quot;This tool saved me hours of formatting. I uploaded my template and had a professional resume in minutes!&quot;
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full mr-4"></div>
+                <div>
+                  <h4 className="font-semibold">Michael Chen</h4>
+                  <p className="text-sm text-gray-500">Software Developer</p>
+                </div>
+              </div>
+              <p className="text-gray-600">
+                &quot;The structured forms made it easy to organize my experience and skills. I got three interview calls within a week!&quot;
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full mr-4"></div>
+                <div>
+                  <h4 className="font-semibold">Emily Rodriguez</h4>
+                  <p className="text-sm text-gray-500">Recent Graduate</p>
+                </div>
+              </div>
+              <p className="text-gray-600">
+                &quot;As a student, I wasn&apos;t sure how to create a professional resume. This tool guided me through the entire process.&quot;
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="py-16 bg-blue-600 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to Create Your Professional Resume?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Join thousands of job seekers who have successfully landed their dream jobs with our resume builder.
+          </p>
+          <Link href="/auth/login">
+            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+              Get Started for Free
+            </Button>
+          </Link>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-6 md:mb-0">
+              <h3 className="text-xl font-bold">CV Designer</h3>
+              <p className="text-gray-400 mt-2">Create professional resumes with ease</p>
+            </div>
+
+            <div className="flex flex-wrap gap-8">
+              <div>
+                <h4 className="font-semibold mb-3">Product</h4>
+                <ul className="space-y-2">
+                  <li><Link href="/templates" className="text-gray-400 hover:text-white">Templates</Link></li>
+                  <li><Link href="/dashboard" className="text-gray-400 hover:text-white">Dashboard</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold mb-3">Account</h4>
+                <ul className="space-y-2">
+                  <li><Link href="/auth/login" className="text-gray-400 hover:text-white">Login</Link></li>
+                  <li><Link href="/auth/login" className="text-gray-400 hover:text-white">Sign Up</Link></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+            <p>&copy; {new Date().getFullYear()} CV Designer. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
